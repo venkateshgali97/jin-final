@@ -1,0 +1,21 @@
+
+button.btn-add {
+    background-color: #FF6196;
+    color: #fff;
+    border: none;
+    border-radius: 10%;
+    padding: 10px 20px;
+    margin-top: 10px;
+    cursor: pointer;
+  }
+  
+  /* Style for the accordion button (if needed) */
+  button.accordion-button-custom {
+    background-color: #19105B !important;
+    color: #fff !important;
+  }
+  
+  button.accordion-button-custom.collapsed {
+    background-color: #19105B !important;
+    color: #fff !important;
+  }

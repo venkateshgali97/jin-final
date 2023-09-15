@@ -1,0 +1,103 @@
+
+
+.contain{
+    display: flex;
+    flex-direction: column;
+    row-gap: 2vh;
+    margin-left: 23%;
+    margin-top: 3%;
+    height: 80%;
+
+}
+
+
+.date{
+    width: 12rem;
+}
+.card{
+    /* display: absolute; */
+    width: 50rem;
+    height: 8rem;
+    box-shadow: 5px 5px rgba(112, 120, 230, 0.267);
+  
+}
+.custom{
+    display: flex;
+
+}
+
+.box1{
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+    align-items: center;
+    justify-content: center;
+    border-right: solid rgba(112, 120, 230, 0.842) 5px;
+    background-color: rgba(112, 120, 230, 0.267);
+    padding-right: 5px;
+    
+}
+.box1 >p{
+    font-weight: bold;
+}
+.date{
+    color: black;
+    box-shadow: 3px 3px rgba(112, 120, 230, 0.267);
+    border-radius: 5px;
+}
+
+.box2{
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.scrollable{
+    max-height: 750px;
+    overflow: auto;
+    margin-right: 26%;
+    
+}
+
+
+
+/* h2{
+    padding-top: 2%;
+}
+ */
+
+
+
+
+.filters {
+    display: flex;
+    flex-direction: row;
+    column-gap: 8%;
+    
+}
+
+/* webkit-based browsers (Chrome, Safari) */
+.search {
+    width: 30%;
+    box-shadow: 3px 3px rgba(112, 120, 230, 0.267);
+    border-radius: 5px;
+}
+
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+/* Customize the scrollbar thumb (the draggable part) */
+::-webkit-scrollbar-thumb {
+  background-color: rgba(112, 120, 230, 0.267); /* Background color of the thumb */
+  border-radius: 10px; /* Rounded corners of the thumb */
+}
+
+
+::-webkit-scrollbar-track {
+  background-color: #ffffff;
+  border-radius: 6px; /* Rounded corners of the track */
+}
