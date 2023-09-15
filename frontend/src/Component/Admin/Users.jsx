@@ -119,7 +119,7 @@ useEffect(() =>{
     };
 
     // Function to handle form submission for updating a user
-    const handleUpdate = () => {
+    const handleUpdate = async(id) => {
         // Check if all required fields are filled
         const isFormValid =
             newUser.first_name.trim() !== '' &&
@@ -138,6 +138,10 @@ useEffect(() =>{
         if (isFormValid) {
             const updatedUserData = [...userData];
             updatedUserData[selectedUserIndex] = newUser;
+            const response = await addUserApi.updateUser(id, newUser)
+            if(response){
+                toast.success("User Information updated successfully.")
+            }
             setUserData(updatedUserData);
             setNewUser({
                 id: '',
@@ -482,7 +486,7 @@ useEffect(() =>{
                     )}
                 </Modal.Body>
                 <Modal.Footer>
-                    <Button variant="primary" onClick={handleUpdate}>
+                    <Button variant="primary" onClick={() => handleUpdate(newUser.id)}>
                         Update
                     </Button>
                 </Modal.Footer>

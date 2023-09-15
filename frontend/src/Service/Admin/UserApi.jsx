@@ -43,6 +43,7 @@ class AddUserApi{
     }
 
     async updateUser(id,newUser){
+        console.log(id,newUser ,"this is from services")
         try{
             const response = await axios.post(`http://localhost:3000/user/update/${id}`,newUser);
             console.log()
