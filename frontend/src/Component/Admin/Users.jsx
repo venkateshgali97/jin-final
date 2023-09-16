@@ -1,4 +1,4 @@
-import React, { useState,useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 // import '../../Styles/admin/Users.css'; // Import your CSS file for styling
 import "../../Style/Admin/Users.css"
 import { Button, Modal, Form } from 'react-bootstrap'; // Import Bootstrap components
@@ -7,7 +7,7 @@ import { Button, Modal, Form } from 'react-bootstrap'; // Import Bootstrap compo
 // import { faTrash } from '@fortawesome/free-solid-svg-icons';
 import { ToastContainer, toast } from "react-toastify";
 import AddUserApi from "../../Service/Admin/UserApi"
- const addUserApi = new AddUserApi()
+const addUserApi = new AddUserApi()
 function Users() {
     const [activeAccordion, setActiveAccordion] = useState(null);
     const [userData, setUserData] = useState([]);
@@ -27,17 +27,20 @@ function Users() {
     });
     const [selectedUserIndex, setSelectedUserIndex] = useState(null);
     const [isFormValid, setFormValid] = useState(true);
-    const getAllUsersData = async () =>{
-        let response = await  addUserApi.getAllUsers()
+    const getAllUsersData = async () => {
+
+        let response = await addUserApi.getAllUsers()
+        console.log(response)
         setUserData(response)
-        
+
+
     }
 
 
-useEffect(() =>{
-    getAllUsersData();
+    useEffect(() => {
+        getAllUsersData();
 
-},[])
+    }, [])
     const handleAccordionClick = (accordionId) => {
         setActiveAccordion((prevAccordion) =>
             prevAccordion === accordionId ? null : accordionId
@@ -96,7 +99,7 @@ useEffect(() =>{
 
         if (isFormValid) {
             setUserData((prevUserData) => [...prevUserData, newUser]);
-          const response =   addUserApi.AddUser(newUser)
+            const response = addUserApi.AddUser(newUser)
 
             // Clear the form fields
             setNewUser({
@@ -119,7 +122,7 @@ useEffect(() =>{
     };
 
     // Function to handle form submission for updating a user
-    const handleUpdate = async(id) => {
+    const handleUpdate = async (id) => {
         // Check if all required fields are filled
         const isFormValid =
             newUser.first_name.trim() !== '' &&
@@ -139,7 +142,7 @@ useEffect(() =>{
             const updatedUserData = [...userData];
             updatedUserData[selectedUserIndex] = newUser;
             const response = await addUserApi.updateUser(id, newUser)
-            if(response){
+            if (response) {
                 toast.success("User Information updated successfully.")
             }
             setUserData(updatedUserData);
@@ -163,14 +166,14 @@ useEffect(() =>{
     };
 
     // Function to handle form submission for deleting a user
-    const handleDelete = async(id) => {
+    const handleDelete = async (id) => {
         // const updatedUserData = userData.filter((user) => user.id !== userId);
         // setUserData(updatedUserData);
         // setUpdateUserModalOpen(false);
         const response = await addUserApi.deleteUser(id)
-        if(response){
+        if (response) {
             window.location.reload();
-            toast.success('User Deleted successfully') 
+            toast.success('User Deleted successfully')
         }
 
         // Log the ID of the deleted user
@@ -232,19 +235,19 @@ useEffect(() =>{
                                                     <td>{user.doj}</td>
                                                     <td>
                                                         <button
-                                                            
+
                                                             className="btn-update btn-primary"
                                                             onClick={() => toggleUpdateUser(index)}
                                                         >
-                                                         {/* <FontAwesomeIcon icon={faEdit} />  */}
-                                                             Update 
+                                                            {/* <FontAwesomeIcon icon={faEdit} />  */}
+                                                            Update
                                                         </button>
                                                         <button
-                                                           
+
                                                             className="btn-delete btn-danger"
                                                             onClick={() => handleDelete(user.id)}
                                                         >
-                                                          Delete
+                                                            Delete
                                                             {/* <FontAwesomeIcon icon={faTrash} />  */}
                                                         </button>
                                                     </td>
@@ -350,7 +353,7 @@ useEffect(() =>{
                                 required
                             />
                         </Form.Group>
-                       
+
                         <Form.Group controlId="doj">
                             <Form.Label>Doj:</Form.Label>
                             <Form.Control

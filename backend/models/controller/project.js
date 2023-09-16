@@ -7,32 +7,31 @@ const addProject = async(req,res) =>{
         
 
         // Extract the admin data from the request body
-        const {name,description,start_date,end_date} = req.body;
-        console.log(name,description,start_date,end_date)
+        const {project_name, start_date, end_date} = req.body;
+        console.log(project_name, start_date, end_date)
 
         // checking project is already existed or not
         const findProject = await projects.findOne({
             where :{
-                name: name
+                project_name: project_name
             }
          })
 
          if(findProject){
-            res.status(400).json({message : 'project already existed'})
+            res.json({message : 'project already existed',status : false})
          }
          // if project is not not existed
          else{
 
              // Create a new project record in the database
                 const newProject = await projects.create({
-                    name,
-                    description,
-                    start_date,
+                    project_name, 
+                    start_date, 
                     end_date
          });
  
          // Send a response indicating success
-         res.status(201).json({ message: 'Project added successfully', project: newProject});
+         res.json({ message: 'Project added successfully', project: newProject,status:true,});
          }
        
     } catch (err) {

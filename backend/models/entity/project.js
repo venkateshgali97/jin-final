@@ -5,24 +5,26 @@ const { sequelize } = require(".");
 module.exports = (sequelize,DataTypes) =>{
     const projects = sequelize.define("projects",{
        
-        name : {
+        id : {
+            type:DataTypes.INTEGER,
+            allowNull : false,
+            primaryKey : true,
+            autoIncrement: true,
+            validate : {
+                notEmpty : true,
+            }
+            
+        },
+        project_name : {
             type:DataTypes.STRING,
             allowNull : false,
             validate : {
                 notEmpty : true
             }
         },
-        description : {
-            type:DataTypes.STRING,
-            allowNull : false,
-            validate : {
-                notEmpty : true
-            }
-        },
-
 
         start_date : {
-            type:DataTypes.DATE,
+            type:DataTypes.DATEONLY,
             allowNull : false,
             validate : {
                 notEmpty : true
@@ -30,12 +32,12 @@ module.exports = (sequelize,DataTypes) =>{
         },
 
         end_date : {
-            type:DataTypes.DATE,
+            type:DataTypes.DATEONLY,
             allowNull : false,
             validate : {
                 notEmpty : true
             }
-        }
+        },
 
     },
     {

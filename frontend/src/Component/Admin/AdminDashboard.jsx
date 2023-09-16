@@ -4,10 +4,12 @@ import { Router,Routes,Route,Navigate,Link } from 'react-router-dom';
 import "../../Style/Admin/AdminDashboard.css"
 import 'font-awesome/css/font-awesome.min.css';
 import Events from "./Events";
-import Projects from "./projects";
-import ProjectAllocation from "./project_allocation";
-// import Users from "./users";
-import Users from "./Users";
+
+
+
+import ProjectAllocation from "./ProjectAllocation ";
+import Users from "./users";
+
 import { ToastContainer } from "react-toastify";
 // import Events from "./Events";
 const AdminDashboard = () =>{
@@ -31,9 +33,7 @@ const AdminDashboard = () =>{
                 <li>
                   <Link to="users">Users</Link>
                 </li>
-                <li>
-                  <Link to="projects">Projects</Link>
-                </li>
+  
                 <li>
                   <Link to="project-allocation">Project Allocation</Link>
                 </li>
@@ -51,7 +51,6 @@ const AdminDashboard = () =>{
             
             <Routes>
               <Route path="events" element={<Events />} />
-              <Route path="projects" element= {<Projects />} />
               <Route path="users" element= {<Users />} />
               <Route path="project-allocation" element= {<ProjectAllocation />} />
             </Routes>

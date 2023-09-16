@@ -52,7 +52,7 @@ const getAllUsers = async(req,res) =>{
         // Create a new admin record in the database
         const allevents = await users.findAll();
         // Send a response indicating success
-        res.status(201).json({ message: 'all users  returned', events: allevents,status:true });
+        res.status(201).json({ message: 'all users  returned', users: allevents,status:true });
     } catch (err) {
         // Handle any errors that occur during the addition process
         console.error(err);

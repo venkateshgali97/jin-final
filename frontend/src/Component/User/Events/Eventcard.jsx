@@ -14,22 +14,21 @@ export default function Eventcard({ event }) {
                 <div className="card-body">
                     <div className="custom">
                         <div className="box1">
-                            <h1 className="card-subtitle mb-2 text-muted">{dateObject.getDate()}</h1>
-                            <h3 className="card-subtitle mb-2 text-muted">{monthName}</h3>
+                            <h1 className="card-subtitle mb-2 text-muted day">{dateObject.getDate()}</h1>
+                            <h3 className="card-subtitle mb-2 text-muted day">{monthName}</h3>
                         </div>
                         <div className="box2">
-                            <h5 className="card-title">Event Name : {name}</h5>
+                        <h5 className="card-title">Event Name : {name}</h5>
                             <p className="card-text">Description : {description}</p>
                             <p className="card-text">Venue : {venue}</p>
-                            {/* <p className="card-text">{start_time}</p>
-                            <p className="card-text">{end_time}</p> */}
-                            {/* <a href="#" className="card-link">Card link</a>
-                            <a href="#" className="card-link">Another link</a> */}
+
                         </div>
-                        <div className="box1">
-                            <p className="card-subtitle mb-2 text-muted">Start : {start_time}</p>
-                            <p className="card-subtitle mb-2 text-muted">End : {end_time}</p>
+                        <div className="box3">
+                            <div className="days">
+                                <p className="card-text"> {start_time}</p> <p>-</p> <p className="card-text"> {end_time}</p>
+                            </div>
                         </div>
+
                     </div>
                 </div>
             </div>

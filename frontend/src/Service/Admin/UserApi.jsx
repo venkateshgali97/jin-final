@@ -24,7 +24,7 @@ class AddUserApi{
         try{
             const response = await axios.get("http://localhost:3000/user/allusers");
              if (response.data.status){    
-                return response.data.events
+                return response.data.users
              }
             
         }catch(err){
