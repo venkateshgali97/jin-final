@@ -7,7 +7,8 @@ import { Router,Routes,Route,Navigate,Link } from 'react-router-dom';
 import 'font-awesome/css/font-awesome.min.css';
 import { ToastContainer } from "react-toastify";
 import UserEvents from "./Events/Events";
-
+import Calenders from './Birthdays/Birthdays.jsx'
+import Holidays from "./Holidays/Holidays";
 // import Users from "./UserProfile/Users";
 // import UserEvents from "./Events";
 // import Events from "./Events";
@@ -33,10 +34,10 @@ const UserDashBoard = () =>{
                   <Link to="events">Events</Link>
                 </li>
                 <li>
-                  <Link to="">Birthdays</Link>
+                  <Link to="birthdays">Birthdays</Link>
                 </li>
                 <li>
-                  <Link to="">Holidays</Link>
+                  <Link to="holidays">Holidays</Link>
                 </li>
                 <li>
                     <i className="" onClick={() => navigate("/")}>Logout</i> 
@@ -50,6 +51,8 @@ const UserDashBoard = () =>{
             
             <Routes>
               <Route path="events" element={<UserEvents />} />
+              <Route path="birthdays" element={<Calenders />} />
+              <Route path="holidays" element={<Holidays />} />
               {/* <Route path="profile" element={<UserProfile_ProjectAllocation />} /> */}
               
             </Routes>

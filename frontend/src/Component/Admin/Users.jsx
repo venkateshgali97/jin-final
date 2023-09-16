@@ -172,12 +172,11 @@ function Users() {
         // setUpdateUserModalOpen(false);
         const response = await addUserApi.deleteUser(id)
         if (response) {
-            window.location.reload();
+            getAllUsersData();
             toast.success('User Deleted successfully')
         }
 
-        // Log the ID of the deleted user
-        // console.log('User deleted, ID:', userId);
+      
     };
 
     return (

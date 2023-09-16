@@ -22,6 +22,7 @@ function Events() {
     const [selectedEventIndex, setSelectedEventIndex] = useState(null);
     const [isFormValid, setFormValid] = useState(true);
 
+    // api call
     let getAllEventsFunction = async() => {
       let response = await EventApis.getAllEvents()
       setEventData(response)
@@ -130,6 +131,7 @@ function Events() {
             console.log(updatedEventData)
             const response = EventApis.updateEvent(id,newEvent)
             if (response){
+                getAllEventsFunction()
               toast.success("Event Updated successfully")
             }
             // setEventData(updatedEventData);
@@ -155,6 +157,7 @@ function Events() {
     const handleDelete = async(id) => {
       const response = await EventApis.deleteEvent(id)
       if (response){
+        getAllEventsFunction()
        toast.success('Event Deleted successfully')   
       }
      };

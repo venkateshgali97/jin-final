@@ -3,9 +3,19 @@ const { sequelize } = require(".");
 
 
 module.exports = (sequelize,DataTypes) =>{
-    const public_holiday  = sequelize.define("public_holiday",{
-        date : {
-            type:DataTypes.DATE,
+    const holidays  = sequelize.define("holidays",{
+        id : {
+            type:DataTypes.INTEGER,
+            allowNull : false,
+            primaryKey : true,
+            autoIncrement: true,
+            validate : {
+                notEmpty : true,
+            }
+            
+        },
+        name : {
+            type:DataTypes.STRING,
             allowNull : false,
             validate : {
                 notEmpty : true
@@ -17,9 +27,15 @@ module.exports = (sequelize,DataTypes) =>{
             validate : {
                 notEmpty : true
             }
+        },
+        date : {
+            type:DataTypes.DATEONLY,
+            allowNull : false,
+            validate : {
+                notEmpty : true
+            }
         }
        
-
     },
     {
         timestamps:false,
@@ -28,5 +44,5 @@ module.exports = (sequelize,DataTypes) =>{
     }
     )
 
-    return public_holiday
+    return holidays
 }

@@ -10,6 +10,8 @@ var loginRouter = require('./routes/login')
 var projectRouter = require("./routes/project")
 var userProjectsRouter = require('./routes/user_project')
 
+var holidaysRouter = require('./routes/holidays')
+
 var app = express();
 const cors = require('cors');
 
@@ -32,6 +34,8 @@ app.use('/event',eventRouter)
 app.use('/user',userRouter)
 app.use("/project", projectRouter)
 app.use("/user-project",userProjectsRouter)
+
+app.use("/holidays", holidaysRouter);
 
 
 // catch 404 and forward to error handler

@@ -129,13 +129,14 @@ function ProjectAllocation() {
 
     if (isFormValid) {
       const response = await projectAllocationApi.AddProject(newProject);
-      console.log(response, "as response");
+    
       
       if (response.status) {
         const project_id = response.project.id;
         console.log(project_id,newProject.users_alloc, "userallocation")
         let status = await projectAllocationApi.allocateProjectToEachUser(project_id,newProject.users_alloc)
         if (status == 200){
+          getAllProjectsData()
           toast.success("Project added successfully")
         }
        
