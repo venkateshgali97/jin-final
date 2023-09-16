@@ -36,17 +36,17 @@ module.exports = (sequelize, DataTypes) => {
   );
 
   // Define the many-to-many association
-  // UserProject.associate = (models) => {
-  //   UserProject.belongsTo(models.users, {
-  //     foreignKey: "id",
-  //     onDelete: "CASCADE", // You can adjust this as needed
-  //   });
+  UserProject.associate = (models) => {
+    UserProject.belongsTo(models.users, {
+      foreignKey: "user_id",
+      onDelete: "CASCADE", // You can adjust this as needed
+    });
 
-  //   UserProject.belongsTo(models.projects, {
-  //     foreignKey: "id",
-  //     onDelete: "CASCADE", // You can adjust this as needed
-  //   });
-  // };
+    UserProject.belongsTo(models.projects, {
+      foreignKey: "project_id",
+      onDelete: "CASCADE", // You can adjust this as needed
+    });
+  };
 
   return UserProject;
 };

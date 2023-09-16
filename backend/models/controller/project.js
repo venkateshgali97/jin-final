@@ -42,7 +42,21 @@ const addProject = async(req,res) =>{
 }
 
 
+const getAllProjects = async(req,res) =>{
+    try {
+        // Create a new admin record in the database
+        const allProjects = await projects.findAll();
+        // Send a response indicating success
+        res.status(201).json({ message: 'all projects returned', projects: allProjects,status:true });
+    } catch (err) {
+        // Handle any errors that occur during the addition process
+        console.error(err);
+        res.status(500).json({ error: 'Failed to fetch all projects' ,status : false});
+    }
+}
+
 
 module.exports = {
-    addProject
+    addProject,
+    getAllProjects
 }
