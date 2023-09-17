@@ -1,12 +1,8 @@
 import React, { useState, useEffect } from 'react';
-// import '../../Styles/admin/Users.css'; // Import your CSS file for styling
-import "../../Style/Admin/Users.css"
-import { Button, Modal, Form } from 'react-bootstrap'; // Import Bootstrap components
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-// import { faEdit } from '@fortawesome/free-solid-svg-icons';
-// import { faTrash } from '@fortawesome/free-solid-svg-icons';
+import "../../Style/Admin/Users.css";
+import { Button, Modal, Form } from 'react-bootstrap';
 import { ToastContainer, toast } from "react-toastify";
-import AddUserApi from "../../Service/Admin/UserApi"
+import AddUserApi from "../../Service/Admin/UserApi";
 const addUserApi = new AddUserApi()
 function Users() {
     const [activeAccordion, setActiveAccordion] = useState(null);
@@ -203,7 +199,7 @@ function Users() {
                         <div className="accordion-body">
                             {activeAccordion === 'users' && (
                                 <>
-                                    <table className="table">
+                                    <table className="tables">
                                         <thead>
                                             <tr>
                                                 <th>First-Name</th>
@@ -235,7 +231,7 @@ function Users() {
                                                     <td>
                                                         <button
 
-                                                            className="btn-update btn-primary"
+                                                            className="btn-update1 btn-primary"
                                                             onClick={() => toggleUpdateUser(index)}
                                                         >
                                                             {/* <FontAwesomeIcon icon={faEdit} />  */}

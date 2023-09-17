@@ -41,7 +41,7 @@ const login = async(req,res) =>{
                    let isValidUser = bcrypt.compare(password,userLoginStatus.dataValues.password)
                     if (isValidUser){
                         const jwtAccessToken =  jwt.sign(email,process.env.ACCESS_TOKEN_SECRET)
-                        res.status(200).json({jsonToken : jwtAccessToken, role : 'user', message : "login successful as a user"})
+                        res.status(200).json({jsonToken : jwtAccessToken, role : 'user', message : "login successful as a user", user : userLoginStatus})
                     }
                     else{
                        

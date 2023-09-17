@@ -1,13 +1,14 @@
 const db = require('../entity')
 const user_project = db.user_project
-
+const users = db.users
+const projects = db.projects
 const addProject_addUser = async (req, res) => {
 
   try {
 
     let { users, project_id } = req.body; // Use 'let' instead of 'const'
 
- 
+
 
     if (!Array.isArray(users)) {
       users = [users];
@@ -23,7 +24,7 @@ const addProject_addUser = async (req, res) => {
 
     });
 
- 
+
 
     // Send a response or handle success
 
@@ -43,37 +44,35 @@ const addProject_addUser = async (req, res) => {
 
 
 
-// const db = require('../entity')
-// const user_project = db.user_project
-
-
-// const addProject_addUser= async(req,res) =>{
-//     try {
-        
-// console.log(req.body)
-//         // Extract the admin data from the request body
-//         const {project_id,user_id} = req.body;
-     
-
-//              // Create a new project record in the database
-//                 const newData = await user_project.create({
-//                     project_id,
-//                     user_id
-//          });
- 
-//          // Send a response indicating success
-//          res.json({ message: 'user details and Project details added successfully', user_project: newData,status:true});
-         
-       
-//     } catch (err) {
-//         // Handle any errors that occur during the addition process
-//         console.error(err);
-//         res.status(500).json({ error: 'Failed to add Project' });
-//     }
-// }
+const projectDetailsOfLoginUser = (req, res) => {
+  let userId = req.params.id;
+  try {
+    // Find the user by their ID and include the associated projects
+    users.findByPk(userId, {
+      include: [
+        {
+          model: projects,
+          attributes: ['project_name', 'start_date', 'end_date'],
+          through: {
+            // If you have additional attributes in the user_project table, you can select them here
+          },
+        },
+      ],
+    }).then((user) => {
+      if (user) {
+        res.send(user.projects); // Note the lowercase 'projects' here
+      } else {
+        res.send(`User with ID ${userId} not found.`);
+      }
+    });
+  } catch (err) {
+    console.log(err);
+  }
+};
 
 
 
 module.exports = {
-    addProject_addUser
+  addProject_addUser,
+  projectDetailsOfLoginUser 
 }

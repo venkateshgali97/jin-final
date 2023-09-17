@@ -248,13 +248,14 @@ function ProjectAllocation() {
                   <div className="search-bar">
                     <input
                       type="text"
+                      className='Searchelement'
                       placeholder="Search by Project-name..."
                       value={searchInput}
                       onChange={handleSearchInputChange}
                     />
                   </div>
                   <div className='project-table-container'>
-                    <table className="table">
+                    <table className="tableadmin">
                       <thead>
                         <tr>
                           <th>Proj-name</th>

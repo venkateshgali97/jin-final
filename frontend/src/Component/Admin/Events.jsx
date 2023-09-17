@@ -187,7 +187,7 @@ function Events() {
                         <div className="accordion-body">
                             {activeAccordion === 'events' && (
                                 <>
-                                    <table className="table">
+                                    <table className="table1">
                                         <thead>
                                             <tr>
                                                 <th>Name</th>
@@ -210,7 +210,7 @@ function Events() {
                                                     <td>{event.end_time}</td>
                                                     <td>
                                                         <button
-                                                            className="btn-update btn-primary"
+                                                            className="btn-update2 btn-primary"
                                                             onClick={() => toggleUpdateEvent(index)}
                                                         >
                                                             Update

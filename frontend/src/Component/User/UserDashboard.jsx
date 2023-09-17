@@ -9,6 +9,8 @@ import { ToastContainer } from "react-toastify";
 import UserEvents from "./Events/Events";
 import Calenders from './Birthdays/Birthdays.jsx'
 import Holidays from "./Holidays/Holidays";
+import Profile_ProjectAllocation from "./Profile_ProjectAllocation/UserProfile_ProjectAllocation";
+
 // import Users from "./UserProfile/Users";
 // import UserEvents from "./Events";
 // import Events from "./Events";
@@ -50,6 +52,7 @@ const UserDashBoard = () =>{
           <div className="main-content">
             
             <Routes>
+              <Route path="profile" element={<Profile_ProjectAllocation />} />
               <Route path="events" element={<UserEvents />} />
               <Route path="birthdays" element={<Calenders />} />
               <Route path="holidays" element={<Holidays />} />

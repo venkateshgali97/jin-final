@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
@@ -13,7 +13,6 @@ const SignIn = () => {
     var navigate = useNavigate();
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-
 
 
     const Info = {
@@ -60,13 +59,13 @@ const SignIn = () => {
             try {
                 const response= await signInApi.SingIn(Info)
                 localStorage.setItem('jwt',response.data.jsonToken)
-                localStorage.setItem("email", response.data.email)
+                localStorage.setItem("id", response.data.user.id)
                 if (response.data.role === 'admin') {
                     toast.success("Login successful as admin")
                     navigate('/admin/events')
                 }
                 else if (response.data.role === 'user') {
-                    navigate('/user')
+                    navigate('/user/profile')
                     toast.success("Login successful")
                 }
 

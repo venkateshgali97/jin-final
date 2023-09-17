@@ -58,7 +58,7 @@ function Holidays() {
     let day = new Date(b.date).getDate()
     let month = new Date(b.date).getMonth()
     let year = new Date().getFullYear();
-    let holiday = b.name
+    let holiday = b.description
     let free = {
       'title': holiday,
       'start': new Date(year, month, day + 1),

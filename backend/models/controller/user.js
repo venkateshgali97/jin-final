@@ -119,11 +119,37 @@ const updateUser = async (req, res) => {
         console.error(err);
         res.json({ error: 'Failed to update user',status:false });
     }
+
 }
+
+
+const loginUser = async (req, res) => {
+    const {id} = req.params
+    try {
+
+            const user= await users.findOne({
+                where : {
+                    id : id
+                }
+
+            })
+         res.json({user : user, status:true, message: "user found"})
+
+        
+    } catch (err) {
+        // Handle any errors that occur during the update process
+        console.error(err);
+        res.json({ error: 'user not found',status:false });
+    }
+    
+}
+
+
 
 module.exports = {
     addUser,
     getAllUsers,
     deleteUser,
-    updateUser
+    updateUser,
+    loginUser
 }
